@@ -1,4 +1,4 @@
-class ArticleController < ApplicationController
+class ArticlesController < ApplicationController
   before_action :find_article, only: [:show, :edit, :update, :destroy]
 
   def show
@@ -21,7 +21,7 @@ class ArticleController < ApplicationController
   end
 
   def update
-    @articles.update(params[:article])
+    @article.update(article_params)
     redirect_to article_path(@article)
   end
 

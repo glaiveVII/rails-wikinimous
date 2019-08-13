@@ -1,8 +1,13 @@
 <h1> List of all articles !!!!!</h1>
-
+<div class="articles">
   <% @articles.each do |article| %>
     <li class="list-group-item">
       <h3><%= link_to article.title, article_path(article), class: "article-title" %></h3>
       <p><%= article.content %></p>
     </li>
   <% end %>
+
+</div>
+
+ <%= link_to "Create a task", new_article_path %>
+
