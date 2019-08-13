@@ -9,7 +9,7 @@ require 'faker'
 
 10.times do
   Article.new(
-    title: Faker::DumbAndDumber.actor,
-    content: Faker::DumbAndDumber.quote
+    title: Faker::Name.name,
+    content: Faker::Movie.quote
   ).save!
 end

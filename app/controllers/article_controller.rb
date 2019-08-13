@@ -5,7 +5,7 @@ class ArticleController < ApplicationController
   end
 
   def index
-    @article = Article.all
+    @articles = Article.all
   end
 
   def new
@@ -13,8 +13,7 @@ class ArticleController < ApplicationController
   end
 
   def create
-    article = Article.new(article_params)
-    article.save
+    Article.create(article_params)
     redirect_to articles_path
   end
 
@@ -23,6 +22,7 @@ class ArticleController < ApplicationController
 
   def update
     @articles.update(params[:article])
+    redirect_to article_path(@article)
   end
 
   def destroy
@@ -33,11 +33,12 @@ class ArticleController < ApplicationController
   private
   # protection from attack !!!
 
-  def task_params
+  def article_params
     params.require(:article).permit(:title, :content)
   end
 
   def find_article
-    @articles = Article.find(params[:id])
+    @article = Article.find(params['id'])
   end
+
 end
